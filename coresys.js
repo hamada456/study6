@@ -1,14 +1,12 @@
 
-console.log("a");
+const $main = document.getElementsByClassName("main-img")[0];
 
-document.getElementsByClassName("btns").addEventListener("click", () => {
-
+//btnsのclassをクリックしたらmain-imgが消える
+document.getElementsByClassName("btns")[0].addEventListener("click",() => {
 console.log("b");
-
-    if(document.getElementsByClassName("main-imgs").style.display === "block") {
-        document.getElementsByClassName("main-imgs").style.display = "none";
-    }else{
-        document.getElementsByClassName("main-imgs").style.display = "none"
+    if($main.style.display === "") {
+        $main.style.display = "none";
+        console.log("c");
     }
-
 });
+
