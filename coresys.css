@@ -8,12 +8,13 @@
     text-align: center;
   }
 
-  .main-imgs{
+  .main-img{
     text-align: center;
-    display: block;
   }
   
   .product-imgs{
+    border: 1px solid;
+    text-align: center;
     display: none;
   }
   
