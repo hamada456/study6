@@ -16,7 +16,8 @@
     //、、、↓↓↓クリックしたら起こるイベント
     const btnClick = (e) => {
 
-        const nigiriProducts = [{
+        const products = [
+        nigiriProducts = [{
                 nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
                 nigiriName:"susi0",
                 nigiriPrice:"0円"
@@ -52,8 +53,46 @@
                 nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_umakaranegi_ebi.png",
                 nigiriName:"susi8",
                 nigiriPrice:""
-            }];
+            }]
 
+        ,gunkanProducts = [{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
+                nigiriName:"susi10",
+                nigiriPrice:"10円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
+                nigiriName:"susi11",
+                nigiriPrice:"11円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_loastbeef_yamawasabi.png",
+                nigiriName:"susi12",
+                nigiriPrice:"12円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_aburitamago_cheese.png",
+                nigiriName:"susi13",
+                nigiriPrice:"13円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_aburi_ebi_mayo.png",
+                nigiriName:"susi14",
+                nigiriPrice:"14円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_z_tennenakaebi_siolemon.png",
+                nigiriName:"susi15",
+                nigiriPrice:"15円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
+                nigiriName:"susi16",
+                nigiriPrice:"16円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_maguro_umakara_negimori.png",
+                nigiriName:"susi17",
+                nigiriPrice:"17円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_umakaranegi_ebi.png",
+                nigiriName:"susi18",
+                nigiriPrice:"18円"
+            }]
+        ];
         //最初の会社ロゴを消す
         document.getElementsByClassName("btns")[0].addEventListener("click" , () => {
             document.getElementsByClassName("main-img")[0].style.display = "none";
@@ -62,8 +101,9 @@
         const $this = e.target;//クリックした物を取る
         const targetVal = $this.dataset.nav;//クリックデータ属性の値を取る
         
-        //対象のコンテンツをアクティブ化する、product-imgs
-        document.getElementById("js-btn").querySelectorAll('[data-content="' + targetVal +'"]')[0].style.display = "block";
+        //対象のコンテンツをアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
+        const $productimgs = document.getElementById("js-btn").querySelectorAll('[data-content="' + targetVal +'"]')[0];
+        $productimgs.style.display = "block";
 
         //９個書き換え
         let productNum = 0;
