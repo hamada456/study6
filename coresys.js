@@ -98,12 +98,7 @@
             document.getElementsByClassName("main-img")[0].style.display = "none";
         });
 
-        const $this = e.target;//クリックした物を取る
-        const targetVal = $this.dataset.nav;//クリックデータ属性の値を取る
         
-        //対象のコンテンツをアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
-        const $productimgs = document.getElementById("js-btn").querySelectorAll('[data-content="' + targetVal +'"]')[0];
-        $productimgs.style.display = "block";
 
         //９個書き換え
         let productNum = 0;
