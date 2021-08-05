@@ -13,8 +13,21 @@
   }
   
   .product-imgs{
-    border: 1px solid;
     text-align: center;
     display: none;
   }
-  
+  .product-img0{
+    border: 1px solid;
+    float :left;
+    width :33%;
+  }
+  .product-img1{
+    border: 1px solid;
+    float :left;
+    width :33%;
+  }
+  .product-img2{
+    border: 1px solid;
+    float :left;
+    width :33%;
+  }
