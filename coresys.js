@@ -60,7 +60,7 @@
             {
                 nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_umakaranegi_ebi.png",
                 nigiriName:"susi8",
-                nigiriPrice:"8円"
+                nigiriPrice:""
             }
         ];
 
@@ -78,11 +78,18 @@
         //９個書き換え
         let productNum = 0;
         while(productNum < $product.length){
-            document.querySelectorAll('[data-img]')[productNum].src = nigiriProducts[productNum].nigiriSrc;
-            document.querySelectorAll('[data-name]')[productNum].textContent = nigiriProducts[productNum].nigiriName;
-            document.querySelectorAll('[data-price]')[productNum].textContent = nigiriProducts[productNum].nigiriPrice;
+            //URLか名前か値段が空なら準備中画像を表示
+            if ( nigiriProducts[productNum].nigiriSrc === "" | nigiriProducts[productNum].nigiriName === "" | nigiriProducts[productNum].nigiriPrice === "" ){
+                document.querySelectorAll('[data-img]')[productNum].src = "./images/準備中.png";
+                document.querySelectorAll('[data-name]')[productNum].textContent = "";
+                document.querySelectorAll('[data-price]')[productNum].textContent = "";
+            }else{
+                document.querySelectorAll('[data-img]')[productNum].src = nigiriProducts[productNum].nigiriSrc;
+                document.querySelectorAll('[data-name]')[productNum].textContent = nigiriProducts[productNum].nigiriName;
+                document.querySelectorAll('[data-price]')[productNum].textContent = nigiriProducts[productNum].nigiriPrice;
+            };
             productNum++;
-        }
+        };
     };
 
         //4つのボタンクリックしたらbtnClickイベントへ、、、↑↑↑
