@@ -56,7 +56,7 @@
             }]
 
         ,gunkanProducts = [{
-                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
+                nigiriSrc:"	https://www.hama-sushi.co.jp/assets/menu/img/gunkan/pho_karaage_garlic.png",
                 nigiriName:"susi10",
                 nigiriPrice:"10円"
             },{
@@ -94,7 +94,7 @@
             }]
 
         ,dessertProducts = [{
-                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
+                nigiriSrc:"https://hamsonic.net/wp-content/uploads/2019/06/6-min-1-768x510.jpg",
                 nigiriName:"susi20",
                 nigiriPrice:"20円"
             },{
@@ -132,7 +132,7 @@
             }]
 
         ,hamburgerProducts = [{
-                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
+                nigiriSrc:"https://www.mcd-holdings.co.jp/news/2008/promotion/img/1126-1.jpg",
                 nigiriName:"susi30",
                 nigiriPrice:"30円"
             },{
