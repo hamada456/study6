@@ -3,6 +3,7 @@
     const $doc = document;
     const $btn = $doc.getElementById("js-btn");
     const $nav = $btn.querySelectorAll("[data-nav]");
+    const $img = document.querySelectorAll("[data-img]");
     const $content = $btn.querySelectorAll("[data-content]");
 
     const $product = document.querySelectorAll("[data-img]");
@@ -187,8 +188,8 @@
             //URLか名前か値段が空なら準備中画像を表示
             if ( nigiriProducts[productNum].nigiriSrc === "" | nigiriProducts[productNum].nigiriName === "" | nigiriProducts[productNum].nigiriPrice === "" ){
                 document.querySelectorAll('[data-img]')[productNum].src = "./images/準備中.png";
-                document.querySelectorAll('[data-name]')[productNum].textContent = "";
-                document.querySelectorAll('[data-price]')[productNum].textContent = "";
+                document.querySelectorAll('[data-name]')[productNum].textContent = "準備中";
+                document.querySelectorAll('[data-price]')[productNum].textContent = "準備中";
             }else{
                 document.querySelectorAll('[data-img]')[productNum].src = products[targetVal][productNum].nigiriSrc;
                 document.querySelectorAll('[data-name]')[productNum].textContent = products[targetVal][productNum].nigiriName;
@@ -203,6 +204,18 @@
         while(index < $nav.length){
             $nav[index].addEventListener("click", (e) => btnClick(e));
             index++;
+        }
+
+        //、、、↓↓↓クリックしたら起こるイベント
+        const imgClick = (e) => {
+            window.open( e.target.currentSrc , width=50 , heigth=50 );
+        }
+
+        //画像をクリックしたらimgClickイベントへ、、、↑↑↑
+        let indeximg = 0;
+        while(indeximg < $img.length){
+            $img[indeximg].addEventListener("click", (e) => imgClick(e));
+            indeximg++;
         }
 
 })();

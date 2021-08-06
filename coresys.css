@@ -13,6 +13,7 @@
   }
   
   .product-imgs{
+    
     text-align: center;
     display: none;
   }
@@ -30,4 +31,8 @@
     border: 1px solid;
     float :left;
     width :33%;
+  }
+  .imgs{
+    width: 200px;
+    height: 160px;
   }
