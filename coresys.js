@@ -92,13 +92,94 @@
                 nigiriName:"susi18",
                 nigiriPrice:"18円"
             }]
+
+        ,dessertProducts = [{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
+                nigiriName:"susi20",
+                nigiriPrice:"20円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
+                nigiriName:"susi21",
+                nigiriPrice:"21円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_loastbeef_yamawasabi.png",
+                nigiriName:"susi22",
+                nigiriPrice:"22円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_aburitamago_cheese.png",
+                nigiriName:"susi23",
+                nigiriPrice:"23円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_aburi_ebi_mayo.png",
+                nigiriName:"susi24",
+                nigiriPrice:"24円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_z_tennenakaebi_siolemon.png",
+                nigiriName:"susi25",
+                nigiriPrice:"25円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
+                nigiriName:"susi26",
+                nigiriPrice:"26円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_maguro_umakara_negimori.png",
+                nigiriName:"susi27",
+                nigiriPrice:"27円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_umakaranegi_ebi.png",
+                nigiriName:"susi28",
+                nigiriPrice:"28円"
+            }]
+
+        ,hamburgerProducts = [{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
+                nigiriName:"susi30",
+                nigiriPrice:"30円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
+                nigiriName:"susi31",
+                nigiriPrice:"31円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_loastbeef_yamawasabi.png",
+                nigiriName:"susi32",
+                nigiriPrice:"32円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_aburitamago_cheese.png",
+                nigiriName:"susi33",
+                nigiriPrice:"33円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_aburi_ebi_mayo.png",
+                nigiriName:"susi34",
+                nigiriPrice:"34円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_z_tennenakaebi_siolemon.png",
+                nigiriName:"susi35",
+                nigiriPrice:"35円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
+                nigiriName:"susi36",
+                nigiriPrice:"36円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_maguro_umakara_negimori.png",
+                nigiriName:"susi37",
+                nigiriPrice:"37円"
+            },{
+                nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_umakaranegi_ebi.png",
+                nigiriName:"susi38",
+                nigiriPrice:"38円"
+            }]
         ];
         //最初の会社ロゴを消す
         document.getElementsByClassName("btns")[0].addEventListener("click" , () => {
             document.getElementsByClassName("main-img")[0].style.display = "none";
         });
 
-        
+        const $this = e.target;//クリックした物を取る
+        const targetVal = $this.dataset.nav;//クリックデータ属性の値を取る
+
+        //対象のコンテンツをアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
+        const $productimgs = document.querySelectorAll('[data-content="0"]')[0];
+        $productimgs.style.display = "block";
 
         //９個書き換え
         let productNum = 0;
@@ -109,9 +190,9 @@
                 document.querySelectorAll('[data-name]')[productNum].textContent = "";
                 document.querySelectorAll('[data-price]')[productNum].textContent = "";
             }else{
-                document.querySelectorAll('[data-img]')[productNum].src = nigiriProducts[productNum].nigiriSrc;
-                document.querySelectorAll('[data-name]')[productNum].textContent = nigiriProducts[productNum].nigiriName;
-                document.querySelectorAll('[data-price]')[productNum].textContent = nigiriProducts[productNum].nigiriPrice;
+                document.querySelectorAll('[data-img]')[productNum].src = products[targetVal][productNum].nigiriSrc;
+                document.querySelectorAll('[data-name]')[productNum].textContent = products[targetVal][productNum].nigiriName;
+                document.querySelectorAll('[data-price]')[productNum].textContent = products[targetVal][productNum].nigiriPrice;
             };
             productNum++;
         };
