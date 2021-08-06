@@ -95,7 +95,7 @@
 
         ,dessertProducts = [{
                 nigiriSrc:"https://hamsonic.net/wp-content/uploads/2019/06/6-min-1-768x510.jpg",
-                nigiriName:"susi20",
+                nigiriName:"いちご豆腐",
                 nigiriPrice:"20円"
             },{
                 nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
@@ -133,7 +133,7 @@
 
         ,hamburgerProducts = [{
                 nigiriSrc:"https://www.mcd-holdings.co.jp/news/2008/promotion/img/1126-1.jpg",
-                nigiriName:"susi30",
+                nigiriName:"バーガー",
                 nigiriPrice:"30円"
             },{
                 nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
