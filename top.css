@@ -1,0 +1,17 @@
+.header {
+    width: 96vw;
+    height: 6vh;
+    background-color: #f7f2b4;
+    font-size: 30px;
+    text-align: center;
+  }
+.window{
+    width: 75vw;
+    height: 85vh;
+    display:inline-block;
+}
+.window2{
+    width: 20vw;
+    height: 85vh;
+    display:inline-block;
+}

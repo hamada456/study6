@@ -208,7 +208,11 @@
 
         //、、、↓↓↓クリックしたら起こるイベント
         const imgClick = (e) => {
-            window.open( e.target.currentSrc , width=50 , heigth=50 );
+            //if ( nigiriProducts[productNum].nigiriSrc === "" | nigiriProducts[productNum].nigiriName === "" | nigiriProducts[productNum].nigiriPrice === "" ){
+           //     window.alert("aaa")
+           // }else{
+                window.open( e.target.currentSrc , width=50 , heigth=50 );
+           // }
         }
 
         //画像をクリックしたらimgClickイベントへ、、、↑↑↑
