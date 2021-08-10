@@ -30,3 +30,6 @@
     width: 200px;
     height: 160px;
   }
+  .productName{
+    display:inline-block;
+  }
