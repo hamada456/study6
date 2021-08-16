@@ -208,8 +208,10 @@
 
         //、、、↓↓↓クリックしたら起こるイベント
         const imgClick = (e) => {
-            //if ( nigiriProducts[productNum].nigiriSrc === "" | nigiriProducts[productNum].nigiriName === "" | nigiriProducts[productNum].nigiriPrice === "" ){
-           //     window.alert("aaa")
+            //if ( nigiriProducts[productNum].nigiriSrc === "" |
+            // nigiriProducts[productNum].nigiriName === "" |
+            //  nigiriProducts[productNum].nigiriPrice === "" ){
+            //     window.alert("aaa")
            // }else{
                 window.open( e.target.currentSrc , width=50 , heigth=50 );
            // }
@@ -222,4 +224,12 @@
             indeximg++;
         }
 
+        //「かご」をクリックしたら、、、、、
+        for( let orderindex = 0 ; orderindex < $img.length ; orderindex++ ){
+        document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", () => {
+            //document.getElementsByClassName("productAdd")[0].textContent = "デバック";
+            //document.getElementById("aaa") = "aaaaa";
+            console.log("aaa");
+        });
+        }
 })();

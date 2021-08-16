@@ -5,12 +5,12 @@
     };
     init();
 
-    document.getElementById("0").addEventListener("click", butotnClick);
+    //document.addEventListener("DOMContentLoaded", function(){
+    //window.addEventListener('load', function(){
 
-    function butotnClick(){
-        alert('Click');
-    }
+        //document.getElementById("0").addEventListener("click", butotnClick);
 
+
+    //},false);
     
-
 })();
