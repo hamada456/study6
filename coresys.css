@@ -1,15 +1,13 @@
   .btns {
     text-align: center;
   }
-
   .main-img{
     text-align: center;
   }
-  
   .product-imgs{
-    
     text-align: center;
-    display: none;
+    /*display: none;*/
+    
   }
   .product-img0{
     border: 1px solid;

@@ -1,5 +1,5 @@
 (() => {
-
+    
     const $doc = document;
     const $btn = $doc.getElementById("js-btn");
     const $nav = $btn.querySelectorAll("[data-nav]");
@@ -224,12 +224,17 @@
             indeximg++;
         }
 
-        //「かご」をクリックしたら、、、、、
-        for( let orderindex = 0 ; orderindex < $img.length ; orderindex++ ){
-        document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", () => {
-            //document.getElementsByClassName("productAdd")[0].textContent = "デバック";
-            //document.getElementById("aaa") = "aaaaa";
-            console.log("aaa");
-        });
+        //、、、↓↓↓orderClickイベント
+        //window.onload = function() {
+        const orderClick = () => {
+            //console.log(document.getElementById("window2").contentWindow.document.getElementById("productAdd"));
+            console.log("test");
+            document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "aaa";
         }
+
+        //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
+        for( let orderindex = 0 ; orderindex < document.querySelectorAll("[data-img]").length ; orderindex++ ){
+            document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", () => orderClick());
+        }
+        //}
 })();
