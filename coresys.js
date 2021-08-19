@@ -229,7 +229,8 @@
         const orderClick = () => {
             //console.log(document.getElementById("window2").contentWindow.document.getElementById("productAdd"));
             console.log("test");
-            document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "aaa";
+            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "aaa";
+            console.log("test2");
         }
 
         //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
