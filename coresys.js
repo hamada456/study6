@@ -1,4 +1,5 @@
 (() => {
+
     
     const $doc = document;
     const $btn = $doc.getElementById("js-btn");
@@ -17,8 +18,22 @@
     //、、、↓↓↓クリックしたら起こるイベント
     const btnClick = (e) => {
 
+        //最初の会社ロゴを消す
+        document.getElementsByClassName("btns")[0].addEventListener("click" , () => {
+            document.getElementsByClassName("main-img")[0].style.display = "none";
+        });
+
+        const $this = e.target;//クリックした物を取る
+        const targetVal = $this.dataset.nav;//クリックデータ属性の値を取る
+
+        //対象のコンテンツをアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
+        const $productimgs = document.querySelectorAll('[data-content="0"]')[0];
+        $productimgs.style.display = "block";
+
+        
+
         const products = [
-        nigiriProducts = [{
+            nigiriProducts = [{
                 nigiriSrc:"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
                 nigiriName:"susi0",
                 nigiriPrice:"0円"
@@ -170,18 +185,7 @@
                 nigiriPrice:"38円"
             }]
         ];
-        //最初の会社ロゴを消す
-        document.getElementsByClassName("btns")[0].addEventListener("click" , () => {
-            document.getElementsByClassName("main-img")[0].style.display = "none";
-        });
-
-        const $this = e.target;//クリックした物を取る
-        const targetVal = $this.dataset.nav;//クリックデータ属性の値を取る
-
-        //対象のコンテンツをアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
-        const $productimgs = document.querySelectorAll('[data-content="0"]')[0];
-        $productimgs.style.display = "block";
-
+        
         //９個書き換え
         let productNum = 0;
         while(productNum < $product.length){
@@ -197,6 +201,7 @@
             };
             productNum++;
         };
+        
     };
 
         //4つのボタンクリックしたらbtnClickイベントへ、、、↑↑↑
