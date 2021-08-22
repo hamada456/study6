@@ -231,16 +231,16 @@
 
         //、、、↓↓↓orderClickイベント
         //window.onload = function() {
-        const orderClick = () => {
-            //console.log(document.getElementById("window2").contentWindow.document.getElementById("productAdd"));
-            console.log("test");
+        let kago = [];
+        const orderClick = (e) => {
             window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "aaa";
-            console.log("test2");
+            kago.push(e.target.innerText);
+            console.log(kago);
         }
 
         //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
         for( let orderindex = 0 ; orderindex < document.querySelectorAll("[data-img]").length ; orderindex++ ){
-            document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", () => orderClick());
+            document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", (e) => orderClick(e));
         }
         //}
 })();
