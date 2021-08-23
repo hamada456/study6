@@ -238,7 +238,10 @@
             console.log(document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText);
             kago.push(document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText);
             console.log(kago);
-            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = kago;
+            //window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = kago.join("");
+            //for( let kagoindex = 0 ; kagoindex < kago ; kagoindex++ ){
+            //    window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = kago;
+            //}
 
         }
 
