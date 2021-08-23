@@ -233,9 +233,11 @@
         //window.onload = function() {
         let kago = [];
         const orderClick = (e) => {
-            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "aaa";
+            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").style.display = "none";
             kago.push(e.target.innerText);
-            console.log(kago);
+            
+            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "kago";
+            //console.log(kago);
         }
 
         //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
