@@ -1,6 +1,5 @@
 (() => {
 
-    
     const $doc = document;
     const $btn = $doc.getElementById("js-btn");
     const $nav = $btn.querySelectorAll("[data-nav]");
@@ -26,6 +25,7 @@
         const targetVal = $this.dataset.nav;//クリックデータ属性の値を取る
 
         //対象のコンテンツをアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
+        //('[data-content="' + targetVal +'"]')
         const $productImgs = document.querySelectorAll('[data-content="0"]')[0];
         $productImgs.style.display = "block";
 
@@ -232,11 +232,14 @@
         //window.onload = function() {
         let kago = [];
         const orderClick = (e) => {
-            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").style.display = "none";
-            kago.push(e.target.innerText);
+            
+            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "";
+            console.log(e.target.dataset.order);//クリックした商品番号
+            console.log(document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText);
+            kago.push(document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText);
+            console.log(kago);
+            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = kago;
 
-            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "kago";
-            //console.log(kago);
         }
 
         //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
