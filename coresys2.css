@@ -1,5 +1,6 @@
+ul{
+    list-style: none;    
+}
 .productAdd{
-    display: block;
-    display: flex;
-    flex-direction: column;
+    
 }
