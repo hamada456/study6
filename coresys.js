@@ -233,15 +233,13 @@
         let kago = [];
         const orderClick = (e) => {
             
-            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = "";
+            //最初の文字を消す
+            window.parent.document.getElementById("window2").contentWindow.document.getElementsByClassName("productp").innerText = "";
             console.log(e.target.dataset.order);//クリックした商品番号
-            console.log(document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText);
+            //配列に商品名を追加
             kago.push(document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText);
-            console.log(kago);
-            //window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = kago.join("");
-            //for( let kagoindex = 0 ; kagoindex < kago ; kagoindex++ ){
-            //    window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = kago;
-            //}
+            //改行（\n）を足してテキストに追加、書き換え処理
+            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = kago.join("\n");
 
         }
 
