@@ -5,7 +5,10 @@
     const $nav = $btn.querySelectorAll("[data-nav]");
     const $img = document.querySelectorAll("[data-img]")
 
-    const $product = document.querySelectorAll("[data-img]");
+    const $productImgs = document.querySelectorAll("[data-img]");
+    const $productName = document.querySelectorAll('[data-name]');
+    const $productPrice = document.querySelectorAll('[data-price]');
+
 
     //初期化
     const init = () => {
@@ -26,10 +29,7 @@
 
         //対象のコンテンツをアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
         //('[data-content="' + targetVal +'"]')
-        const $productImgs = document.querySelectorAll('[data-content="0"]')[0];
-        $productImgs.style.display = "block";
-
-        
+        document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
 
         const products = [
             nigiriProducts = [{
@@ -187,16 +187,16 @@
         
         //９個書き換え
         let productNum = 0;
-        while(productNum < $product.length){
+        while(productNum < $productImgs.length){
             //URLか名前か値段が空なら準備中画像を表示
             if ( nigiriProducts[productNum].nigiriSrc === "" || nigiriProducts[productNum].nigiriName === "" || nigiriProducts[productNum].nigiriPrice === "" ){
-                document.querySelectorAll('[data-img]')[productNum].src = "./images/準備中.png";
-                document.querySelectorAll('[data-name]')[productNum].textContent = "準備中";
-                document.querySelectorAll('[data-price]')[productNum].textContent = "準備中";
+                $productImgs[productNum].src = "./images/準備中.png";
+                $productName[productNum].textContent = "準備中";
+                $productPrice[productNum].textContent = "準備中";
             }else{
-                document.querySelectorAll('[data-img]')[productNum].src = products[targetVal][productNum].nigiriSrc;
-                document.querySelectorAll('[data-name]')[productNum].textContent = products[targetVal][productNum].nigiriName;
-                document.querySelectorAll('[data-price]')[productNum].textContent = products[targetVal][productNum].nigiriPrice;
+                $productImgs[productNum].src = products[targetVal][productNum].nigiriSrc;
+                $productName[productNum].textContent = products[targetVal][productNum].nigiriName;
+                $productPrice[productNum].textContent = products[targetVal][productNum].nigiriPrice;
             };
             productNum++;
         };
@@ -217,7 +217,7 @@
             //  nigiriProducts[productNum].nigiriPrice === "" ){
             //     window.alert("aaa")
            // }else{
-                window.open( e.target.currentSrc , width=50 , heigth=50 );
+                window.open(e.target.currentSrc ,width=50 ,heigth=50);
            // }
         }
 
@@ -235,6 +235,8 @@
             
             //最初の文字を消す
             window.parent.document.getElementById("window2").contentWindow.document.getElementsByClassName("productp").innerText = "";
+            //テーブルを表示する
+            window.parent.document.getElementById("window2").contentWindow.document.getElementsByClassName("table")[0].style.display = "block";
             console.log(e.target.dataset.order);//クリックした商品番号
             //配列に商品名を追加
             kago.push(document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText);
