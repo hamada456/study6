@@ -3,12 +3,11 @@
     const $doc = document;
     const $btn = $doc.getElementById("js-btn");
     const $nav = $btn.querySelectorAll("[data-nav]");
-    const $img = document.querySelectorAll("[data-img]")
+    const $img = document.querySelectorAll("[data-img]");
 
     const $productImgs = document.querySelectorAll("[data-img]");
     const $productName = document.querySelectorAll('[data-name]');
     const $productPrice = document.querySelectorAll('[data-price]');
-
 
     //初期化
     const init = () => {
@@ -230,19 +229,29 @@
 
         //、、、↓↓↓orderClickイベント
         //window.onload = function() {
-        let kago = [];
+        let basket = [];
         const orderClick = (e) => {
-            
-            //最初の文字を消す
-            window.parent.document.getElementById("window2").contentWindow.document.getElementsByClassName("productp").innerText = "";
-            //テーブルを表示する
-            window.parent.document.getElementById("window2").contentWindow.document.getElementsByClassName("table")[0].style.display = "block";
-            console.log(e.target.dataset.order);//クリックした商品番号
-            //配列に商品名を追加
-            kago.push(document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText);
-            //改行（\n）を足してテキストに追加、書き換え処理
-            window.parent.document.getElementById("window2").contentWindow.document.getElementById("productAdd").innerText = kago.join("\n");
 
+            const $window2 = window.parent.document.getElementById("window2").contentWindow.document;
+
+            //if($window2.getElementsByClassName("productAdd")[0].innerText !== ""){
+            //最初の文字を消す
+            $window2.getElementsByClassName("productAdd")[0].innerText = "";
+            //テーブルを表示する
+            $window2.getElementsByClassName("table")[0].style.display = "block";
+            //配列に商品名を追加
+            basket.name = document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText;
+            basket.price = document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productPrice")[0].innerText;
+            //配列の商品を書き換える
+            $window2.getElementsByTagName("td")[0].innerText = basket.name;
+            $window2.getElementsByTagName("td")[1].innerText = basket.price;
+
+            
+            window.parent.document.getElementById("window2").contentWindow.document.getElementById('basket').appendChild(document.createElement('td'));
+            document.createElement('td').textContent = "aaa";
+            console.log(basket);
+            //}
+            
         }
 
         //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
