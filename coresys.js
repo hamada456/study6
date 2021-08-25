@@ -189,7 +189,7 @@
         let productNum = 0;
         while(productNum < $product.length){
             //URLか名前か値段が空なら準備中画像を表示
-            if ( nigiriProducts[productNum].nigiriSrc === "" | nigiriProducts[productNum].nigiriName === "" | nigiriProducts[productNum].nigiriPrice === "" ){
+            if ( nigiriProducts[productNum].nigiriSrc === "" || nigiriProducts[productNum].nigiriName === "" || nigiriProducts[productNum].nigiriPrice === "" ){
                 document.querySelectorAll('[data-img]')[productNum].src = "./images/準備中.png";
                 document.querySelectorAll('[data-name]')[productNum].textContent = "準備中";
                 document.querySelectorAll('[data-price]')[productNum].textContent = "準備中";
