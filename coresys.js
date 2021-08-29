@@ -234,23 +234,24 @@
 
             const $window2 = window.parent.document.getElementById("window2").contentWindow.document;
 
-            //if($window2.getElementsByClassName("productAdd")[0].innerText !== ""){
-            //最初の文字を消す
-            $window2.getElementsByClassName("productAdd")[0].innerText = "";
-            //テーブルを表示する
-            $window2.getElementsByClassName("table")[0].style.display = "block";
-            //配列に商品名を追加
-            basket.name = document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText;
-            basket.price = document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productPrice")[0].innerText;
-            //配列の商品を書き換える
-            $window2.getElementsByTagName("td")[0].innerText = basket.name;
-            $window2.getElementsByTagName("td")[1].innerText = basket.price;
+            if($window2.getElementsByClassName("productAdd")[0].innerText !== ""){
+                //最初の文字を消す
+                $window2.getElementsByClassName("productAdd")[0].innerText = "";
+                //テーブルを表示する
+                $window2.getElementsByClassName("table")[0].style.display = "block";
+                //配列に商品名を追加
+                basket.name = document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productName")[0].innerText;
+                basket.price = document.getElementsByClassName("product-img0")[e.target.dataset.order].getElementsByClassName("productPrice")[0].innerText;
+                //配列の商品を書き換える
+                $window2.getElementsByTagName("td")[0].innerText = basket.name;
+                $window2.getElementsByTagName("td")[1].innerText = basket.price;
+            }else{
+                
 
-            
-            window.parent.document.getElementById("window2").contentWindow.document.getElementById('basket').appendChild(document.createElement('td'));
-            document.createElement('td').textContent = "aaa";
-            console.log(basket);
-            //}
+                $window2.getElementById('basket').appendChild(document.createElement('td'));
+
+                console.log(basket);
+            }
             
         }
 
