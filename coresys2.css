@@ -1,7 +1,7 @@
-.productAdd{
-    
-}
 .table{
     display: none;
     /*border: 1px;*/
+}
+td{
+    display: flex;
 }
