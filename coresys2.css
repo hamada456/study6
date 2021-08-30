@@ -1,9 +1,12 @@
 .table{
-    display: flex;
     display: none;
     /*border: 1px;*/
-    
 }
-td{
+
+/*.pricetate{
     display: flex;
 }
+
+.nametate{
+    display: flex;
+}*/
