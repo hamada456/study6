@@ -246,11 +246,9 @@
                 $window2.getElementsByTagName("td")[0].innerText = basket.name;
                 $window2.getElementsByTagName("td")[1].innerText = basket.price;
             }else{
-                
-
                 $window2.getElementById('basket').appendChild(document.createElement('td'));
-
-                console.log(basket);
+                //$window2.getElementById('basket').appendChild(document.createElement('td'));
+                
             }
             
         }
