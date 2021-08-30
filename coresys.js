@@ -26,7 +26,7 @@
         const $this = e.target;//クリックした物を取る
         const targetVal = $this.dataset.nav;//クリックデータ属性の値を取る
 
-        //対象のコンテンツをアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
+        //対象のコンテンツ（９個の画像と名前、値段など）をアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
         //('[data-content="' + targetVal +'"]')
         document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
 
@@ -235,6 +235,7 @@
             const $window2 = window.parent.document.getElementById("window2").contentWindow.document;
 
             if($window2.getElementsByClassName("productAdd")[0].innerText !== ""){
+            //一回目の処理
                 //最初の文字を消す
                 $window2.getElementsByClassName("productAdd")[0].innerText = "";
                 //テーブルを表示する
@@ -245,17 +246,26 @@
                 //配列の商品を書き換える
                 $window2.getElementsByTagName("td")[0].innerText = basket.name;
                 $window2.getElementsByTagName("td")[1].innerText = basket.price;
+                console.log(basket)
             }else{
-                $window2.getElementById('basket').appendChild(document.createElement('td'));
-                //$window2.getElementById('basket').appendChild(document.createElement('td'));
+            //二回目以降の処理
+                
+                //テーブル追加構文～
+                let $table = $window2.getElementById('table');
+                let newRow = $table.insertRow();
+                let newCell = newRow.insertCell();
+                newCell.appendChild(document.createTextNode('仮商品'));
+                newCell = newRow.insertCell();
+                newCell.appendChild(document.createTextNode('X円'));
+                //～テーブル追加構文
                 
             }
             
         }
 
-        //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
-        for( let orderindex = 0 ; orderindex < document.querySelectorAll("[data-img]").length ; orderindex++ ){
-            document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", (e) => orderClick(e));
-        }
+            //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
+            for( let orderindex = 0 ; orderindex < document.querySelectorAll("[data-img]").length ; orderindex++ ){
+                document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", (e) => orderClick(e));
+            }
         //}
 })();
