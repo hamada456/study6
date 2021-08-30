@@ -3,10 +3,13 @@
     /*border: 1px;*/
 }
 
-/*.pricetate{
+/*.basket{
+    display: flex;
+}
+tr{
     display: flex;
 }
 
-.nametate{
+/*.nametate{
     display: flex;
 }*/
