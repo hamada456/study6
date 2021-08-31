@@ -231,7 +231,6 @@
         }
 
         //、、、↓↓↓orderClickイベント
-        //window.onload = function() {
         let basket = [];
         const orderClick = (e) => {
 
@@ -262,14 +261,10 @@
                 newCell = newRow.insertCell();
                 newCell.appendChild(document.createTextNode('X円'));
                 //～テーブル追加構文
-                
             }
-            
         }
-
             //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
             for( let orderindex = 0 ; orderindex < document.querySelectorAll("[data-img]").length ; orderindex++ ){
                 document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", (e) => orderClick(e));
             }
-        //}
 })();
