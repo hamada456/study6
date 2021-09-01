@@ -265,6 +265,6 @@
         }
             //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
             for( let orderindex = 0 ; orderindex < document.querySelectorAll("[data-img]").length ; orderindex++ ){
-                document.getElementsByClassName("productOrder")[orderindex].addEventListener("click", (e) => orderClick(e));
+                $doc.getElementsByClassName("productOrder")[orderindex].addEventListener("click", (e) => orderClick(e));
             }
 })();
