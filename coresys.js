@@ -235,6 +235,7 @@
         const orderClick = (e) => {
 
             const $window2 = window.parent.document.getElementById("window2").contentWindow.document;
+            const $clickProductText = document.getElementsByClassName("product-img0")[e.target.dataset.order];
 
             if($window2.getElementsByClassName("productAdd")[0].innerText !== ""){
             //一回目の処理
@@ -243,7 +244,6 @@
                 //テーブルを表示する
                 $window2.getElementsByClassName("table")[0].style.display = "block";
                 //配列に商品名を追加
-                const $clickProductText = document.getElementsByClassName("product-img0")[e.target.dataset.order];
                 basket.name = $clickProductText.getElementsByClassName("productName")[0].innerText;
                 basket.price = $clickProductText.getElementsByClassName("productPrice")[0].innerText;
                 //配列の商品を書き換える
