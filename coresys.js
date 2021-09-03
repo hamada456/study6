@@ -257,9 +257,9 @@
                 let $table = $window2.getElementById('table');
                 let newRow = $table.insertRow();
                 let newCell = newRow.insertCell();
-                newCell.appendChild(document.createTextNode('仮商品'));
+                newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productName")[0].innerText));
                 newCell = newRow.insertCell();
-                newCell.appendChild(document.createTextNode('X円'));
+                newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
                 //～テーブル追加構文
             }
         }
