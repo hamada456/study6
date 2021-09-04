@@ -267,6 +267,7 @@
                 basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
                 console.log(basketName);
                 console.log(basketPrice);
+                
                 //～テーブル追加構文
             }
         }
