@@ -26,7 +26,7 @@
         const $this = e.target;//クリックした物を取る
         const targetVal = $this.dataset.nav;//クリックデータ属性の値を取る
 
-        //対象のコンテンツ（９個の画像と名前、値段など）をアクティブ化する、product-imgs///' + targetVal +'を0にしてもOK
+        //対象のコンテンツ（９個の画像と名前、値段など）をアクティブ化する、product-imgs
         //('[data-content="' + targetVal +'"]')
         document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
 
@@ -191,7 +191,7 @@
         while(productNum < $productImgs.length){
             //URLか名前か値段が空なら準備中画像を表示
             const nNum = nigiriProducts[productNum];
-            if ( nNum.nigiriSrc === "" || nNum.nigiriName === "" || nNum.nigiriPrice === "" ){
+            if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
                 $productImgs[productNum].src = "./images/準備中.png";
                 $productName[productNum].textContent = "準備中";
                 $productPrice[productNum].textContent = "準備中";
@@ -231,7 +231,9 @@
         }
 
         //、、、↓↓↓orderClickイベント
-        let basket = [];
+        let basketName = [];
+        let basketPrice = [];
+        
         const orderClick = (e) => {
 
             const $window2 = window.parent.document.getElementById("window2").contentWindow.document;
@@ -244,12 +246,13 @@
                 //テーブルを表示する
                 $window2.getElementsByClassName("table")[0].style.display = "block";
                 //配列に商品名を追加
-                basket.name = $clickProductText.getElementsByClassName("productName")[0].innerText;
-                basket.price = $clickProductText.getElementsByClassName("productPrice")[0].innerText;
+                basketName.push($clickProductText.getElementsByClassName("productName")[0].innerText);
+                basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
                 //配列の商品を書き換える
-                $window2.getElementsByTagName("td")[0].innerText = basket.name;
-                $window2.getElementsByTagName("td")[1].innerText = basket.price;
-                console.log(basket)
+                $window2.getElementsByTagName("td")[0].innerText = basketName;
+                $window2.getElementsByTagName("td")[1].innerText = basketPrice;
+                console.log(basketName);
+                console.log(basketPrice);
             }else{
             //二回目以降の処理
                 
@@ -260,6 +263,10 @@
                 newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productName")[0].innerText));
                 newCell = newRow.insertCell();
                 newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
+                basketName.push($clickProductText.getElementsByClassName("productName")[0].innerText);
+                basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
+                console.log(basketName);
+                console.log(basketPrice);
                 //～テーブル追加構文
             }
         }
