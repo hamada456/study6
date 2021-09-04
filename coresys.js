@@ -255,7 +255,6 @@
                 console.log(basketPrice);
             }else{
             //二回目以降の処理
-                
                 //テーブル追加構文～
                 let $table = $window2.getElementById('table');
                 let newRow = $table.insertRow();
@@ -263,12 +262,13 @@
                 newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productName")[0].innerText));
                 newCell = newRow.insertCell();
                 newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
+                newCell = newRow.insertCell();
+                newCell.appendChild(document.createTextNode("del"));
+                //～テーブル追加構文
                 basketName.push($clickProductText.getElementsByClassName("productName")[0].innerText);
                 basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
                 console.log(basketName);
                 console.log(basketPrice);
-                
-                //～テーブル追加構文
             }
         }
             //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑
