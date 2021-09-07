@@ -1,5 +1,7 @@
-{
-    "nigiriProducts" :[{
+{ 
+"products" : [
+
+    "nigiriProducts" ,[{
         "nigiriSrc":"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_gyukarubimayo.png",
         "nigiriName":"susi0",
         "nigiriPrice":"0円"
@@ -37,7 +39,7 @@
         "nigiriPrice":""
     }]
 
-,"gunkanProducts" :[{
+,"gunkanProducts" ,[{
         "nigiriSrc":"https://www.hama-sushi.co.jp/assets/menu/img/gunkan/pho_karaage_garlic.png",
         "nigiriName":"susi10",
         "nigiriPrice":"10円"
@@ -75,7 +77,7 @@
         "nigiriPrice":"18円"
     }]
 
-,"dessertProducts" :[{
+,"dessertProducts" ,[{
         "nigiriSrc":"https://hamsonic.net/wp-content/uploads/2019/06/6-min-1-768x510.jpg",
         "nigiriName":"いちご豆腐",
         "nigiriPrice":"20円"
@@ -113,7 +115,7 @@
         "nigiriPrice":"28円"
     }]
 
-,"hamburgerProducts" :[{
+,"hamburgerProducts" ,[{
         "nigiriSrc":"https://www.mcd-holdings.co.jp/news/2008/promotion/img/1126-1.jpg",
         "nigiriName":"バーガー",
         "nigiriPrice":"30円"
@@ -149,5 +151,6 @@
         "nigiriSrc":"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_umakaranegi_ebi.png",
         "nigiriName":"susi38",
         "nigiriPrice":"38円"
-    }]
-}
+    }
+    ]
+]}

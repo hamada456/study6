@@ -30,19 +30,25 @@
         //('[data-content="' + targetVal +'"]')
         document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
 
+        let products = [];
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", "./coresys.json");
+        xhr.open("GET", "https://jsondata.okiba.me/v1/json/87m8p210907062709");//./coresys.json
         xhr.onload = () => {
             let responseJson = JSON.parse(xhr.response);
-            console.log(responseJson.nigiriProducts.nigiriSrc);
+            products = responseJson;
+            console.log(products);
+            console.log(responseJson.products);
+            console.log(products[0]);
+            
         }
         xhr.send();
+        let nigiriProducts = products[0]
         
         //９個書き換え
         let productNum = 0;
         while(productNum < $productImgs.length){
             //URLか名前か値段が空なら準備中画像を表示
-            const nNum = nigiriProducts[productNum];
+            let nNum = nigiriProducts[productNum];
             if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
                 $productImgs[productNum].src = "./images/準備中.png";
                 $productName[productNum].textContent = "準備中";
