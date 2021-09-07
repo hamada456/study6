@@ -30,12 +30,17 @@
         //('[data-content="' + targetVal +'"]')
         document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
 
+        let products = [];
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", "./coresys.json");
+        xhr.open("GET", "https://jsondata.okiba.me/v1/json/Bg8NV210907014508");//./coresys.json
         xhr.onload = () => {
             let responseJson = JSON.parse(xhr.response);
-            console.log(responseJson.nigiriProducts.nigiriSrc);
+            const products = responseJson.nigiriProducts;
+            console.log(responseJson.products);
+            console.log(responseJson.nigiriProducts);
+            console.log(responseJson.nigiriProducts[0].nigiriSrc);
         }
+        
         xhr.send();
         
         //９個書き換え
