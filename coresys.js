@@ -32,14 +32,13 @@
 
         let products = [];
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://jsondata.okiba.me/v1/json/87m8p210907062709");//./coresys.json
+        xhr.open("GET", "./coresys.json");
         xhr.onload = () => {
             let responseJson = JSON.parse(xhr.response);
             products = responseJson;
             console.log(products);
             console.log(responseJson.products);
             console.log(products[0]);
-            
         }
         xhr.send();
         let nigiriProducts = products[0]
