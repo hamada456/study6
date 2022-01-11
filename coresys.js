@@ -1,3 +1,4 @@
+//ver 6.0
 (() => {
 
     const $doc = document;
