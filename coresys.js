@@ -42,8 +42,7 @@
             console.log(products[0]);
         }
         xhr.send();
-        let nigiriProducts = products[0]
-        
+        let nigiriProducts = products
         //９個書き換え
         let productNum = 0;
         while(productNum < $productImgs.length){
