@@ -39,20 +39,18 @@
             req.open("GET", "./coresys2.json",false);
             req.send(null);
             // JSON のデータ数分処理
-            products = JSON.parse(req.responseText);
-            // var str = json;
-            // var result = str.replace( "",  );
-            // console.log( result );
-            console.log(products)
-            let nigiriProducts = products
-            return nigiriProducts
+            return JSON.parse(req.responseText);
+            //console.log(products)
+            //let nigiriProducts = products
+            //return products
             }
 
         //let nigiriProducts = products
         //９個書き換え
         let productNum = 0;
+        const products = getJSON()
         while(productNum < $productImgs.length){
-            let products = getJSON()
+            
             //URLか名前か値段が空なら準備中画像を表示
             let nNum = nigiriProducts[productNum];
             if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
