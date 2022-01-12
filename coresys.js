@@ -38,11 +38,8 @@
             // 実際にサーバーへリクエストを送信
             req.open("GET", "./coresys2.json",false);
             req.send(null);
-            // JSON のデータ数分処理
+            // JSON のデータ数分処理、値を返す
             return JSON.parse(req.responseText);
-            //console.log(products)
-            //let nigiriProducts = products
-            //return products
             }
 
         //let nigiriProducts = products
