@@ -32,7 +32,11 @@
 
         let products = [];
         let xhr = new XMLHttpRequest();
+<<<<<<< Updated upstream
         xhr.open("GET", "https://jsondata.okiba.me/v1/json/87m8p210907062709");//./coresys.json
+=======
+        xhr.open("GET", "./coresys.json");
+>>>>>>> Stashed changes
         xhr.onload = () => {
             let responseJson = JSON.parse(xhr.response);
             products = responseJson;
@@ -42,7 +46,11 @@
             
         }
         xhr.send();
+<<<<<<< Updated upstream
         let nigiriProducts = products[0]
+=======
+        let nigiriProducts = products
+>>>>>>> Stashed changes
         
         //９個書き換え
         let productNum = 0;
