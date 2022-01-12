@@ -40,24 +40,25 @@
             req.send(null);
             // JSON のデータ数分処理、値を返す
             return JSON.parse(req.responseText);
-            }
+        }
 
         //let nigiriProducts = products
         //９個書き換え
-        let productNum = 0;
         const products = getJSON()
+        let productNum = 0;
+        //const products = getJSON()
         while(productNum < $productImgs.length){
             
             //URLか名前か値段が空なら準備中画像を表示
             let nNum = nigiriProducts[productNum];
             if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
-                $productImgs[productNum].src = "./images/準備中.png";
                 $productName[productNum].textContent = "準備中";
                 $productPrice[productNum].textContent = "準備中";
+                $productImgs[productNum].src = "./images/準備中.png";
             }else{
-                $productImgs[productNum].src = products[targetVal][productNum].nigiriSrc;
                 $productName[productNum].textContent = products[targetVal][productNum].nigiriName;
                 $productPrice[productNum].textContent = products[targetVal][productNum].nigiriPrice;
+                $productImgs[productNum].src = products[targetVal][productNum].nigiriSrc;
             };
             productNum++;
         };
