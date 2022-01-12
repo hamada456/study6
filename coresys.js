@@ -48,7 +48,7 @@
             // XMLHttpRequest オブジェクトを生成する
             var req = new XMLHttpRequest();  
             // 実際にサーバーへリクエストを送信
-            req.open("GET", "./coresys.json",false);
+            req.open("GET", "./coresys2.json",false);
             req.send(null);
             // JSON のデータ数分処理
             products = JSON.parse(req.responseText);
