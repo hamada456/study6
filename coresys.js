@@ -32,12 +32,16 @@
         document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
         //９個書き換え
         let productNum = 0;
-        console.log(products[targetVal][productNum].itemName);
-
         while(productNum < $productImgs.length){
+            if(products[targetVal][productNum].itemName === ""||products[targetVal][productNum].itemPrice||products[targetVal][productNum].itemSrc){
+            $productName[productNum].textContent = "準備中";
+            $productPrice[productNum].textContent = "準備中";
+            $productImgs[productNum].src = "./images/準備中.png";
+            }else{
             $productName[productNum].textContent = products[targetVal][productNum].itemName;
             $productPrice[productNum].textContent = products[targetVal][productNum].itemPrice;
             $productImgs[productNum].src = products[targetVal][productNum].itemSrc;
+            }
             productNum++;
         };
         // while(productNum < $productImgs.length){
