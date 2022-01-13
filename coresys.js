@@ -9,16 +9,16 @@
     const $productImgs = document.querySelectorAll("[data-img]");
     const $productName = document.querySelectorAll('[data-name]');
     const $productPrice = document.querySelectorAll('[data-price]');
-
+    //./coresys.jsonを取得
+    getJSON();
     //初期化
     const init = () => {
         document.getElementsByClassName("main-img")[0].style.display = "block";
     };
     init();
 
-    //、、、↓↓↓クリックしたら起こるイベント
+    //、、↓↓↓クリックしたら起こるイベント
     const btnClick = (e) => {
-
         //最初の会社ロゴを消す
         document.getElementsByClassName("btns")[0].addEventListener("click" , () => {
             document.getElementsByClassName("main-img")[0].style.display = "none";
@@ -30,51 +30,19 @@
         //対象のコンテンツ（９個の画像と名前、値段など）をアクティブ化する、product-imgs
         //('[data-content="' + targetVal +'"]')
         document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
-
-        //let products = [];
-        // let xhr = new XMLHttpRequest();
-        // xhr.open("GET", "./coresys.json");
-        // xhr.onload = () => {
-        //     let responseJson = JSON.parse(xhr.response);
-        //     products = responseJson;
-        //     console.log(products);
-        //     console.log(responseJson.products);
-        //     console.log(products[0]);
-        // }
-        // xhr.send();
-
-        function getJSON() {
-            let products = [];
-            // XMLHttpRequest オブジェクトを生成する
-            var req = new XMLHttpRequest();  
-            // 実際にサーバーへリクエストを送信
-            req.open("GET", "./coresys.json",false);
-            req.send(null);
-            // JSON のデータ数分処理
-            products = JSON.parse(req.responseText);
-            // var str = json;
-            // var result = str.replace( "",  );
-            // console.log( result );
-            console.log(products)
-            let nigiriProducts = products
-            return nigiriProducts
-            }
-
-        //let nigiriProducts = products
         //９個書き換え
         let productNum = 0;
         while(productNum < $productImgs.length){
-            let nigiriProducts = getJSON()
             //URLか名前か値段が空なら準備中画像を表示
             let nNum = nigiriProducts[productNum];
             if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
-                $productImgs[productNum].src = "./images/準備中.png";
                 $productName[productNum].textContent = "準備中";
                 $productPrice[productNum].textContent = "準備中";
+                $productImgs[productNum].src = "./images/準備中.png";
             }else{
-                $productImgs[productNum].src = products[targetVal][productNum].nigiriSrc;
                 $productName[productNum].textContent = products[targetVal][productNum].nigiriName;
                 $productPrice[productNum].textContent = products[targetVal][productNum].nigiriPrice;
+                $productImgs[productNum].src = products[targetVal][productNum].nigiriSrc;
             };
             productNum++;
         };
@@ -152,4 +120,15 @@
             for( let orderindex = 0 ; orderindex < document.querySelectorAll("[data-img]").length ; orderindex++ ){
                 $doc.getElementsByClassName("productOrder")[orderindex].addEventListener("click", (e) => orderClick(e));
             }
+
+            function getJSON() {
+                // XMLHttpRequest オブジェクトを生成する
+                const req = new XMLHttpRequest();  
+                // 実際にサーバーへリクエストを送信
+                req.open("GET", "./coresys2.json",false);
+                req.send(null);
+                // JSON のデータ数分処理、値を返す
+                products = JSON.parse(req.responseText);
+            }
+            console.log(products)
 })();
