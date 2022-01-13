@@ -9,16 +9,16 @@
     const $productImgs = document.querySelectorAll("[data-img]");
     const $productName = document.querySelectorAll('[data-name]');
     const $productPrice = document.querySelectorAll('[data-price]');
-
+    //./coresys.jsonを取得
+    getJSON();
     //初期化
     const init = () => {
         document.getElementsByClassName("main-img")[0].style.display = "block";
     };
     init();
 
-    //、、、↓↓↓クリックしたら起こるイベント
+    //、、↓↓↓クリックしたら起こるイベント
     const btnClick = (e) => {
-
         //最初の会社ロゴを消す
         document.getElementsByClassName("btns")[0].addEventListener("click" , () => {
             document.getElementsByClassName("main-img")[0].style.display = "none";
@@ -30,25 +30,9 @@
         //対象のコンテンツ（９個の画像と名前、値段など）をアクティブ化する、product-imgs
         //('[data-content="' + targetVal +'"]')
         document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
-
-        function getJSON() {
-            let products = [];
-            // XMLHttpRequest オブジェクトを生成する
-            var req = new XMLHttpRequest();  
-            // 実際にサーバーへリクエストを送信
-            req.open("GET", "./coresys2.json",false);
-            req.send(null);
-            // JSON のデータ数分処理、値を返す
-            return JSON.parse(req.responseText);
-        }
-
-        //let nigiriProducts = products
         //９個書き換え
-        const products = getJSON()
         let productNum = 0;
-        //const products = getJSON()
         while(productNum < $productImgs.length){
-            
             //URLか名前か値段が空なら準備中画像を表示
             let nNum = nigiriProducts[productNum];
             if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
@@ -136,4 +120,15 @@
             for( let orderindex = 0 ; orderindex < document.querySelectorAll("[data-img]").length ; orderindex++ ){
                 $doc.getElementsByClassName("productOrder")[orderindex].addEventListener("click", (e) => orderClick(e));
             }
+
+            function getJSON() {
+                // XMLHttpRequest オブジェクトを生成する
+                const req = new XMLHttpRequest();  
+                // 実際にサーバーへリクエストを送信
+                req.open("GET", "./coresys2.json",false);
+                req.send(null);
+                // JSON のデータ数分処理、値を返す
+                products = JSON.parse(req.responseText);
+            }
+            console.log(products)
 })();
