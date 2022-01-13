@@ -32,20 +32,28 @@
         document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
         //９個書き換え
         let productNum = 0;
+        console.log(products[targetVal][productNum].itemName);
+
         while(productNum < $productImgs.length){
-            //URLか名前か値段が空なら準備中画像を表示
-            let nNum = nigiriProducts[productNum];
-            if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
-                $productName[productNum].textContent = "準備中";
-                $productPrice[productNum].textContent = "準備中";
-                $productImgs[productNum].src = "./images/準備中.png";
-            }else{
-                $productName[productNum].textContent = products[targetVal][productNum].nigiriName;
-                $productPrice[productNum].textContent = products[targetVal][productNum].nigiriPrice;
-                $productImgs[productNum].src = products[targetVal][productNum].nigiriSrc;
-            };
+            $productName[productNum].textContent = products[targetVal][productNum].itemName;
+            $productPrice[productNum].textContent = products[targetVal][productNum].itemPrice;
+            $productImgs[productNum].src = products[targetVal][productNum].itemSrc;
             productNum++;
         };
+        // while(productNum < $productImgs.length){
+        //     //URLか名前か値段が空なら準備中画像を表示
+        //     let nNum = nigiriProducts[productNum];
+        //     if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
+        //         $productName[productNum].textContent = "準備中";
+        //         $productPrice[productNum].textContent = "準備中";
+        //         $productImgs[productNum].src = "./images/準備中.png";
+        //     }else{
+        //         $productName[productNum].textContent = products[dessertProducts][0][itemName];
+        //         $productPrice[productNum].textContent = products[targetVal][productNum].nigiriPrice;
+        //         $productImgs[productNum].src = products[targetVal][productNum].nigiriSrc;
+        //     };
+        //     productNum++;
+        // };
         
     };
 
