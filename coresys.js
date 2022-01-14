@@ -33,31 +33,17 @@
         //９個書き換え
         let productNum = 0;
         while(productNum < $productImgs.length){
-            if(products[targetVal][productNum].itemName === ""||products[targetVal][productNum].itemPrice||products[targetVal][productNum].itemSrc){
-            $productName[productNum].textContent = "準備中";
-            $productPrice[productNum].textContent = "準備中";
-            $productImgs[productNum].src = "./images/準備中.png";
-            }else{
-            $productName[productNum].textContent = products[targetVal][productNum].itemName;
-            $productPrice[productNum].textContent = products[targetVal][productNum].itemPrice;
-            $productImgs[productNum].src = products[targetVal][productNum].itemSrc;
-            }
+            // if(products[targetVal][productNum].itemName === ""||products[targetVal][productNum].itemPrice||products[targetVal][productNum].itemSrc){
+            //     $productName[productNum].textContent = "準備中";
+            //     $productPrice[productNum].textContent = "準備中";
+            //     $productImgs[productNum].src = "./images/準備中.png";
+            // }else{
+                $productName[productNum].textContent = products[targetVal][productNum].itemName;
+                $productPrice[productNum].textContent = products[targetVal][productNum].itemPrice;
+                $productImgs[productNum].src = products[targetVal][productNum].itemSrc;
+            // }
             productNum++;
         };
-        // while(productNum < $productImgs.length){
-        //     //URLか名前か値段が空なら準備中画像を表示
-        //     let nNum = nigiriProducts[productNum];
-        //     if(nNum.nigiriSrc === ""||nNum.nigiriName === ""||nNum.nigiriPrice === ""){
-        //         $productName[productNum].textContent = "準備中";
-        //         $productPrice[productNum].textContent = "準備中";
-        //         $productImgs[productNum].src = "./images/準備中.png";
-        //     }else{
-        //         $productName[productNum].textContent = products[dessertProducts][0][itemName];
-        //         $productPrice[productNum].textContent = products[targetVal][productNum].nigiriPrice;
-        //         $productImgs[productNum].src = products[targetVal][productNum].nigiriSrc;
-        //     };
-        //     productNum++;
-        // };
         
     };
 
@@ -137,7 +123,7 @@
                 // XMLHttpRequest オブジェクトを生成する
                 const req = new XMLHttpRequest();  
                 // 実際にサーバーへリクエストを送信
-                req.open("GET", "./coresys2.json",false);
+                req.open("GET", "./coresys.json",false);
                 req.send(null);
                 // JSON のデータ数分処理、値を返す
                 products = JSON.parse(req.responseText);
