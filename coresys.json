@@ -6,12 +6,12 @@
         "itemPrice":"0円"
       },{
         "itemSrc":"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_cheese_hamburg.png",
-        "itemName":"susi1",
-        "itemPrice":"1円"
+        "itemName":"susi1"
+        
       },{
         "itemSrc":"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_loastbeef_yamawasabi.png",
         "itemName":"susi2",
-        "itemPrice":"2円"
+        "itemPrice":""
       },{
         "itemSrc":"https://www.hama-sushi.co.jp/assets/menu/img/nigiri/pho_aburitamago_cheese.png",
         "itemName":"susi3",
