@@ -1,4 +1,3 @@
-//ver 6.0
 (() => {
 
     const $doc = document;
@@ -33,15 +32,21 @@
         //９個書き換え
         let productNum = 0;
         while(productNum < $productImgs.length){
-            // if(products[targetVal][productNum].itemName === ""||products[targetVal][productNum].itemPrice||products[targetVal][productNum].itemSrc){
-            //     $productName[productNum].textContent = "準備中";
-            //     $productPrice[productNum].textContent = "準備中";
-            //     $productImgs[productNum].src = "./images/準備中.png";
-            // }else{
+            if(products[targetVal][productNum].itemName === undefined || products[targetVal][productNum].itemPrice === undefined || products[targetVal][productNum].itemSrc === undefined ){
+                $productName[productNum].textContent = "準備中";
+                $productPrice[productNum].textContent = "準備中";
+                $productImgs[productNum].src = "./images/準備中.png";
+                document.getElementsByClassName("productOrder")[productNum].innerText = "";
+            }else if(products[targetVal][productNum].itemName === "" || products[targetVal][productNum].itemPrice === "" || products[targetVal][productNum].itemSrc === "" ){
+                $productName[productNum].textContent = "準備中";
+                $productPrice[productNum].textContent = "準備中";
+                $productImgs[productNum].src = "./images/準備中.png";
+                document.getElementsByClassName("productOrder")[productNum].innerText = "";
+            }else{
                 $productName[productNum].textContent = products[targetVal][productNum].itemName;
                 $productPrice[productNum].textContent = products[targetVal][productNum].itemPrice;
                 $productImgs[productNum].src = products[targetVal][productNum].itemSrc;
-            // }
+            }
             productNum++;
         };
         
@@ -56,13 +61,13 @@
 
         //、、、↓↓↓クリックしたら起こるイベント
         const imgClick = (e) => {
-            //if ( nigiriProducts[productNum].nigiriSrc === "" |
-            // nigiriProducts[productNum].nigiriName === "" |
-            //  nigiriProducts[productNum].nigiriPrice === "" ){
-            //     window.alert("aaa")
-           // }else{
+            // if (products[targetVal][productNum].itemSrc === "" ||
+            //     products[targetVal][productNum].itemName === "" ||
+            //     products[targetVal][productNum].itemPrice === "" ){
+            //     window.alert("準備中です")
+            // }else{
                 window.open(e.target.currentSrc ,width=50 ,heigth=50);
-           // }
+            //}
         }
 
         //画像をクリックしたらimgClickイベントへ、、、↑↑↑
