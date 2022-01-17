@@ -8,6 +8,7 @@
     const $productImgs = document.querySelectorAll("[data-img]");
     const $productName = document.querySelectorAll('[data-name]');
     const $productPrice = document.querySelectorAll('[data-price]');
+    const $productDel = document.querySelectorAll('[data-del]');
     //./coresys.jsonを取得
     getJSON();
     //初期化
@@ -111,6 +112,7 @@
                 newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
                 newCell = newRow.insertCell();
                 newCell.appendChild(document.createTextNode("del+"));
+                $productDel[0].setAttribute("data-del","0");
                 //～テーブル追加構文
                 
                 basketName.push($clickProductText.getElementsByClassName("productName")[0].innerText);
