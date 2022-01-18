@@ -110,9 +110,11 @@
                 newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productName")[0].innerText));
                 newCell = newRow.insertCell();
                 newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
-                newCell = newRow.insertCell();
-                newCell.appendChild(document.createTextNode("del+"));
-                $productDel[0].setAttribute("data-del","0");
+                //削除ボタン用の空のHTMLを追加
+                //newCell = newRow.insertCell();
+                //削除ボタンを追加
+                //newCell.appendChild(document.createElement("button"));
+                //$productDel[1].setAttribute("data-del","1");
                 //～テーブル追加構文
                 
                 basketName.push($clickProductText.getElementsByClassName("productName")[0].innerText);
