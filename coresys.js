@@ -19,7 +19,7 @@
     };
     init();
 
-    //、、↓↓↓クリックしたら起こるイベント
+    //、、↓↓↓クリックしたら起こるイベント「「「btnClick」」」」「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「
     const btnClick = (e) => {
         //最初の会社ロゴを消す
         document.getElementsByClassName("btns")[0].addEventListener("click" , () => {
@@ -39,12 +39,12 @@
                 $productName[productNum].textContent = "準備中";
                 $productPrice[productNum].textContent = "準備中";
                 $productImgs[productNum].src = "./images/準備中.png";
-                document.getElementsByClassName("productOrder")[productNum].innerText = "";
+                //document.getElementsByClassName("productOrder")[productNum].innerText = "";
             }else if(products[targetVal][productNum].itemName === "" || products[targetVal][productNum].itemPrice === "" || products[targetVal][productNum].itemSrc === "" ){
                 $productName[productNum].textContent = "準備中";
                 $productPrice[productNum].textContent = "準備中";
                 $productImgs[productNum].src = "./images/準備中.png";
-                document.getElementsByClassName("productOrder")[productNum].innerText = "";
+                //document.getElementsByClassName("productOrder")[productNum].innerText = "";
             }else{
                 $productName[productNum].textContent = products[targetVal][productNum].itemName;
                 $productPrice[productNum].textContent = products[targetVal][productNum].itemPrice;
@@ -55,7 +55,7 @@
         
     };
 
-        //4つのボタンクリックしたらbtnClickイベントへ、、、↑↑↑
+        //4つのボタンクリックしたらbtnClickイベントへ、、、↑↑↑」」」」」」」」」」」」」」」」」」」」」」」」」」」」」」」」」」」」
         let index = 0;
         while(index < $nav.length){
             $nav[index].addEventListener("click", (e) => btnClick(e));
@@ -80,13 +80,18 @@
             indeximg++;
         }
 
-        //、、、、、↓↓↓orderClickイベント、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+        //、、、、、↓↓↓orderClickイベント、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
         let basketName = [];
         let basketPrice = [];
         
         const orderClick = (e) => {
             
             const $clickProductText = document.getElementsByClassName("product-img0")[e.target.dataset.order];
+
+            //準備中は何もしない
+            if( $clickProductText.getElementsByClassName("productName")[0].innerText.match(/準備中/) ) {
+                return;
+            }
 
             if($window2.getElementsByClassName("productAdd")[0].innerText !== ""){
             //一回目の処理
@@ -104,6 +109,7 @@
                 $window2.getElementsByTagName("td")[1].innerText = basketPrice;
                 console.log(basketName);
                 console.log(basketPrice);
+                $window2.getElementById("total").innerText = "かごの金額";
             }else{
             //二回目以降の処理
                 //〜〜テーブル追加構文～〜
@@ -126,30 +132,22 @@
                 basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
                 console.log(basketName);
                 console.log(basketPrice);
+                $window2.getElementById("total").innerText = "かごの金額";
             }
         }
-            //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+            //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
             for( let orderIndex = 0 ; orderIndex < document.querySelectorAll("[data-img]").length ; orderIndex++ ){
                 $doc.getElementsByClassName("productOrder")[orderIndex].addEventListener("click", (e) => orderClick(e));
             }
 
-            //-------------↓↓↓delClickイベント---------------------------------------------------------------
+            //-------------↓↓↓delClickイベント---------------------------------------------------------------------
             const delClick = () => {
-                console.log("aaa");
                 basketName.pop();
                 basketPrice.pop();
-                
+                $window2.getElementsByClassName("basket")[basketName.length].remove();
+                $window2.getElementById("total").innerText = "削除後の金額";
                 console.log(basketName);
                 console.log(basketPrice);
-                //let element = $window2.getElementsByClassName("basket");
-
-                // let $table = $window2.getElementById('table');
-                // let delRow = $table.deleteRow();
-                // let delCell = newRow.deleteCell();
-                // delCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productName")[0].innerText));
-                // delCell = delRow.deleteCell();
-                // delCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
-                // console.log("bbb");
             }
 
             //「削除」をクリックしたら「「delClick」」イベントへ------↑↑↑------------------------------------------------
