@@ -3,6 +3,10 @@
     /*border: 1px;*/
 }
 
+.delbtn{
+    display: none;
+}
+
 /*.basket{
     display: flex;
 }
