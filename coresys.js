@@ -109,7 +109,8 @@
                 $window2.getElementsByTagName("td")[1].innerText = basketPrice;
                 console.log(basketName);
                 console.log(basketPrice);
-                $window2.getElementById("total").innerText = "かごの金額";
+                //合計金額を出力
+                $window2.getElementById("total").innerText = $clickProductText.getElementsByClassName("productPrice")[0].innerText;
             }else{
             //二回目以降の処理
                 //〜〜テーブル追加構文～〜
@@ -132,6 +133,9 @@
                 basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
                 console.log(basketName);
                 console.log(basketPrice);
+                //合計金額を計算
+                //let total -= parseInt(basketPrice.slice(1));
+                //合計金額を出力
                 $window2.getElementById("total").innerText = "かごの金額";
             }
         }
@@ -142,9 +146,12 @@
 
             //-------------↓↓↓delClickイベント---------------------------------------------------------------------
             const delClick = () => {
+                //配列内の名前と値段を削除
                 basketName.pop();
                 basketPrice.pop();
+                //HTMLを削除
                 $window2.getElementsByClassName("basket")[basketName.length].remove();
+                //削除後の合計金額を出力
                 $window2.getElementById("total").innerText = "削除後の金額";
                 console.log(basketName);
                 console.log(basketPrice);
