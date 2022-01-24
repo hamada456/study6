@@ -151,10 +151,27 @@
                 basketPrice.pop();
                 //HTMLを削除
                 $window2.getElementsByClassName("basket")[basketName.length].remove();
+                //削除後の配列内合計金額を置き換え
+                //円を削除しInt型に変更
+                let basketIndex = 0;
+                let basketTotal = 0;
+                let basketAll = 0;
+                // while(basketPrice.length > basketIndex){
+                    console.log(basketPrice);
+                    basketTotal = basketPrice[basketPrice.length - 1].slice(0,-1);
+                    parseInt(basketTotal);
+                    basketAll = basketAll + basketTotal
+                    console.log(basketPrice);
+                //     basketPrice.parseInt();
+                //     console.log(basketPrice);
+                // }
+                
+                //削除後の合計金額を計算
+                
                 //削除後の合計金額を出力
                 $window2.getElementById("total").innerText = "削除後の金額";
-                console.log(basketName);
-                console.log(basketPrice);
+                //console.log(basketName);
+                //console.log(basketPrice);
             }
 
             //「削除」をクリックしたら「「delClick」」イベントへ------↑↑↑------------------------------------------------
