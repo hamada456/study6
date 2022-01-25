@@ -10,7 +10,7 @@
     const $productPrice = document.querySelectorAll('[data-price]');
     //const $productDel = document.querySelectorAll('[data-del]');
     const $window2 = window.parent.document.getElementById("window2").contentWindow.document;
-
+    let basketAll = 0;
     //./coresys.jsonを取得
     getJSON();
     //初期化
@@ -155,23 +155,25 @@
                 //円を削除しInt型に変更
                 let basketIndex = 0;
                 let basketTotal = 0;
-                let basketAll = 0;
-                // while(basketPrice.length > basketIndex){
+                let basketPriceLength = basketPrice.length - 1
+                
+                while(basketPrice.length > basketIndex){
                     console.log(basketPrice);
-                    basketTotal = basketPrice[basketPrice.length - 1].slice(0,-1);
-                    parseInt(basketTotal);
-                    basketAll = basketAll + basketTotal
-                    console.log(basketPrice);
-                //     basketPrice.parseInt();
-                //     console.log(basketPrice);
-                // }
+                    basketTotal = basketPrice[basketPriceLength].slice(0,-1);
+                    basketTotal = parseInt(basketTotal);
+                    basketAll = basketAll + basketTotal;
+                    console.log(basketTotal);
+                    console.log(basketAll);
+
+                    basketPriceLength--
+                    basketIndex++
+                }
                 
                 //削除後の合計金額を計算
                 
                 //削除後の合計金額を出力
-                $window2.getElementById("total").innerText = "削除後の金額";
-                //console.log(basketName);
-                //console.log(basketPrice);
+                $window2.getElementById("total").innerText = basketAll;
+                basketAll = 0;
             }
 
             //「削除」をクリックしたら「「delClick」」イベントへ------↑↑↑------------------------------------------------
