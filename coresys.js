@@ -170,11 +170,7 @@
                 }
                 
                 //削除後の合計金額を出力
-                if(basketAll > 0){
-                    $window2.getElementById("total").innerText = basketAll + "円";
-                }else{
-                    $window2.getElementById("total").innerText = "商品を選択して下さい。";
-                }
+                $window2.getElementById("total").innerText = basketAll > 0 ? `${basketAll}円` : "商品を選択";
                 basketAll = 0;
             }
 
