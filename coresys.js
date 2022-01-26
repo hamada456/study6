@@ -152,16 +152,16 @@
 
                 //削除後の配列内合計金額を置き換え
                 let basketIndex = 0;
-                let basketTotal = 0;
+                let basketInt = 0;
                 let basketPriceLength = basketPrice.length - 1
                 //商品の数だけ繰り返す
                 while(basketPrice.length > basketIndex){
                     //円を取り除く
-                    basketTotal = basketPrice[basketPriceLength].slice(0,-1);
+                    basketInt = basketPrice[basketPriceLength].slice(0,-1);
                     //Int型に変換
-                    basketTotal = parseInt(basketTotal);
-                    //値段の末端一つを足す
-                    basketAll = basketAll + basketTotal;
+                    basketInt = parseInt(basketInt);
+                    //値段の配列末端一つだけを足す
+                    basketAll = basketAll + basketInt;
                     
                     basketPriceLength--
                     basketIndex++
