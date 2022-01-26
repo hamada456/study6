@@ -131,8 +131,6 @@
                 
                 basketName.push($clickProductText.getElementsByClassName("productName")[0].innerText);
                 basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
-                console.log(basketName);
-                console.log(basketPrice);
                 //合計金額を計算
                 //let total -= parseInt(basketPrice.slice(1));
                 //合計金額を出力
@@ -149,30 +147,32 @@
                 //配列内の名前と値段を削除
                 basketName.pop();
                 basketPrice.pop();
-                //HTMLを削除
+                //HTMLを削除.remove
                 $window2.getElementsByClassName("basket")[basketName.length].remove();
+
                 //削除後の配列内合計金額を置き換え
-                //円を削除しInt型に変更
                 let basketIndex = 0;
                 let basketTotal = 0;
                 let basketPriceLength = basketPrice.length - 1
-                
+                //商品の数だけ繰り返す
                 while(basketPrice.length > basketIndex){
-                    console.log(basketPrice);
+                    //円を取り除く
                     basketTotal = basketPrice[basketPriceLength].slice(0,-1);
+                    //Int型に変換
                     basketTotal = parseInt(basketTotal);
+                    //値段の末端一つを足す
                     basketAll = basketAll + basketTotal;
-                    console.log(basketTotal);
-                    console.log(basketAll);
-
+                    
                     basketPriceLength--
                     basketIndex++
                 }
                 
-                //削除後の合計金額を計算
-                
                 //削除後の合計金額を出力
-                $window2.getElementById("total").innerText = basketAll;
+                if(basketAll > 0){
+                    $window2.getElementById("total").innerText = basketAll + "円";
+                }else{
+                    $window2.getElementById("total").innerText = "商品を選択して下さい。";
+                }
                 basketAll = 0;
             }
 
@@ -188,5 +188,4 @@
                 // JSON のデータ数分処理、値を返す
                 products = JSON.parse(req.responseText);
             }
-            //console.log(products)
 })();
