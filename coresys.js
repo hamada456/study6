@@ -40,20 +40,21 @@
             //９個書き換え
             let productNum = 0;
             while(productNum < $productImgs.length){
-                if(products[targetVal][productNum].itemName === undefined || products[targetVal][productNum].itemPrice === undefined || products[targetVal][productNum].itemSrc === undefined ){
+
+                const productTarget = products[targetVal][productNum];
+
+                if(productTarget.itemName == undefined||productTarget.itemPrice == undefined||productTarget.itemSrc == undefined){
                     $productName[productNum].textContent = "準備中";
                     $productPrice[productNum].textContent = "準備中";
                     $productImgs[productNum].src = "./images/準備中.png";
-                    //document.getElementsByClassName("productOrder")[productNum].innerText = "";
-                }else if(products[targetVal][productNum].itemName === "" || products[targetVal][productNum].itemPrice === "" || products[targetVal][productNum].itemSrc === "" ){
+                }else if(productTarget.itemName == "" || productTarget.itemPrice == "" || productTarget.itemSrc == "" ){
                     $productName[productNum].textContent = "準備中";
                     $productPrice[productNum].textContent = "準備中";
                     $productImgs[productNum].src = "./images/準備中.png";
-                    //document.getElementsByClassName("productOrder")[productNum].innerText = "";
                 }else{
-                    $productName[productNum].textContent = products[targetVal][productNum].itemName;
-                    $productPrice[productNum].textContent = products[targetVal][productNum].itemPrice;
-                    $productImgs[productNum].src = products[targetVal][productNum].itemSrc;
+                    $productName[productNum].textContent = productTarget.itemName;
+                    $productPrice[productNum].textContent = productTarget.itemPrice;
+                    $productImgs[productNum].src = productTarget.itemSrc;
                 }
                 productNum++;
             };
