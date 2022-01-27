@@ -10,6 +10,11 @@
     const $productPrice = document.querySelectorAll('[data-price]');
     //const $productDel = document.querySelectorAll('[data-del]');
     const $window2 = window.parent.document.getElementById("window2").contentWindow.document;
+    //買い物カゴ内の個別の商品名
+    let basketName = [];
+    //買い物カゴ内の個別の値段
+    let basketPrice = [];
+
     let basketAll = 0;
 
     //./coresys.jsonを取得
@@ -21,9 +26,6 @@
     };
     init();
     
-    let basketName = [];
-    let basketPrice = [];
-
     //、、↓↓↓クリックしたら起こるイベント「「「btnClick」」」」「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「
         const btnClick = (e) => {
             //最初の会社ロゴを消す
@@ -67,18 +69,12 @@
         index++;
     }
 
-        //、、、↓↓↓クリックしたら起こるイベント
+        //、、、↓↓↓クリックしたら起こるイベント↓↓↓↓↓↓↓↓↓
         const imgClick = (e) => {
-            // if (products[targetVal][productNum].itemSrc === "" ||
-            //     products[targetVal][productNum].itemName === "" ||
-            //     products[targetVal][productNum].itemPrice === "" ){
-            //     window.alert("準備中です")
-            // }else{
-                window.open(e.target.currentSrc ,width=50 ,heigth=50);
-            //}
+            window.open(e.target.currentSrc ,width=50 ,heigth=50);
         }
 
-    //画像をクリックしたらimgClickイベントへ、、、↑↑↑
+    //画像をクリックしたらimgClickイベントへ、、、↑↑↑↑↑↑↑↑↑
     let indeximg = 0;
     while(indeximg < $img.length){
         $img[indeximg].addEventListener("click", (e) => imgClick(e));
@@ -86,8 +82,6 @@
     }
 
     //、、、、、↓↓↓orderClickイベント、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
-        
-                
         const orderClick = (e) => {
                     
             const $clickProductText = document.getElementsByClassName("product-img0")[e.target.dataset.order];
@@ -110,35 +104,27 @@
                 newRow.className = "basket";
                 newCell = newRow.insertCell();
                 newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
-                        //削除ボタン用の空のHTMLを追加
-                        //newCell = newRow.insertCell();
-                        //削除ボタンを追加
-                        //newCell.appendChild(document.createElement("button"));
-                        //$productDel[1].setAttribute("data-del","1");
-                        //～〜テーブル追加構文〜〜
                         
                 basketName.push($clickProductText.getElementsByClassName("productName")[0].innerText);
                 basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
                 //追加後の配列内合計金額を置き換え
-                let basketIndex = 0;
+                //let basketIndex = 0;
                 let basketInt = 0;
                 let basketPriceLength = basketPrice.length - 1
                 //商品の数だけ繰り返す
-                while(basketPrice.length > basketIndex){
-                    //円を取り除く
+                for(let basketIndex = 0 ; basketPrice.length > basketIndex ; basketIndex++){
+                    //配列の末端の"円"を取り除く
                     basketInt = basketPrice[basketPriceLength].slice(0,-1);
                     //Int型に変換
                     basketInt = parseInt(basketInt);
                     //値段の配列末端一つだけを足す
                     basketAll = basketAll + basketInt;
-                    
+                    //次の計算の為
                     basketPriceLength--
-                    basketIndex++
                 }
                 //追加後の合計金額を出力
                 $window2.getElementById("total").innerText = basketAll > 0 ? `${basketAll}円` : "商品を選択";
                 basketAll = 0;
-            //}
         }
     //「かご」をクリックしたらorderClickイベントへ、、、↑↑↑、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
     for( let orderIndex = 0 ; orderIndex < document.querySelectorAll("[data-img]").length ; orderIndex++ ){
@@ -151,25 +137,21 @@
                 basketName.pop();
                 basketPrice.pop();
                 //HTMLを削除.remove
-                $window2.getElementsByClassName("basket")[basketName.length].remove();
-
+                $window2.getElementsByClassName("basket")[basketName.length + 1].remove();
                 //削除後の配列内合計金額を置き換え
-                let basketIndex = 0;
                 let basketInt = 0;
                 let basketPriceLength = basketPrice.length - 1
-                //商品の数だけ繰り返す
-                while(basketPrice.length > basketIndex){
+                //削除後の商品の数だけ繰り返す
+                for(let basketIndex = 0 ; basketPrice.length > basketIndex ; basketIndex++){
                     //配列の末端の"円"を取り除く
                     basketInt = basketPrice[basketPriceLength].slice(0,-1);
                     //Int型に変換
                     basketInt = parseInt(basketInt);
                     //値段の配列末端一つだけを足す
                     basketAll = basketAll + basketInt;
-                    
+                    //次の計算の為
                     basketPriceLength--
-                    basketIndex++
                 }
-                
                 //削除後の合計金額を出力
                 $window2.getElementById("total").innerText = basketAll > 0 ? `${basketAll}円` : "商品を選択";
                 basketAll = 0;
