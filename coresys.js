@@ -10,12 +10,10 @@
     const $productPrice = document.querySelectorAll('[data-price]');
     //const $productDel = document.querySelectorAll('[data-del]');
     const $window2 = window.parent.document.getElementById("window2").contentWindow.document;
-    //買い物カゴ内の個別の商品名
+    //買い物カゴ内の商品一覧
     let basketName = [];
-    //買い物カゴ内の個別の値段
+    //買い物カゴ内の値段一覧
     let basketPrice = [];
-
-    let basketAll = 0;
 
     //./coresys.jsonを取得
     getJSON();
@@ -71,7 +69,14 @@
 
         //、、、↓↓↓クリックしたら起こるイベント↓↓↓↓↓↓↓↓↓
         const imgClick = (e) => {
+
+            const $clickProductImgName = $doc.getElementsByClassName("productName")[e.target.dataset.img].innerText
+
+            if( $clickProductImgName === "準備中" || $clickProductImgName === "" ) {
+                return;
+            }else{
             window.open(e.target.currentSrc ,width=50 ,heigth=50);
+            }
         }
 
     //画像をクリックしたらimgClickイベントへ、、、↑↑↑↑↑↑↑↑↑
@@ -99,17 +104,18 @@
                 let $table = $window2.getElementById('table');
                 let newRow = $table.insertRow();
                 let newCell = newRow.insertCell();
-                newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productName")[0].innerText));
+                newCell.appendChild($doc.createTextNode($clickProductText.getElementsByClassName("productName")[0].innerText));
                 //クラスを新規に付与
                 newRow.className = "basket";
                 newCell = newRow.insertCell();
-                newCell.appendChild(document.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
+                newCell.appendChild($doc.createTextNode($clickProductText.getElementsByClassName("productPrice")[0].innerText));
                         
                 basketName.push($clickProductText.getElementsByClassName("productName")[0].innerText);
                 basketPrice.push($clickProductText.getElementsByClassName("productPrice")[0].innerText);
                 //追加後の配列内合計金額を置き換え
                 //let basketIndex = 0;
                 let basketInt = 0;
+                let basketAll = 0;
                 let basketPriceLength = basketPrice.length - 1
                 //商品の数だけ繰り返す
                 for(let basketIndex = 0 ; basketPrice.length > basketIndex ; basketIndex++){
@@ -140,6 +146,7 @@
                 $window2.getElementsByClassName("basket")[basketName.length + 1].remove();
                 //削除後の配列内合計金額を置き換え
                 let basketInt = 0;
+                let basketAll = 0;
                 let basketPriceLength = basketPrice.length - 1
                 //削除後の商品の数だけ繰り返す
                 for(let basketIndex = 0 ; basketPrice.length > basketIndex ; basketIndex++){
