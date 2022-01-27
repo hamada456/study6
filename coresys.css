@@ -13,6 +13,7 @@
     border: 1px solid;
     float :left;
     width :33%;
+    display:inline-block;
   }
   .product-img1{
     border: 1px solid;
@@ -32,6 +33,7 @@
     display:inline-block;
   }
   .productOrder{
-    display:inline-block;
+    
     display: block;
+    display:inline-block;
   }
