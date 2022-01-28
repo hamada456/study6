@@ -37,12 +37,13 @@
             //対象のコンテンツ（９個の画像と名前、値段など）をアクティブ化する、product-imgs
             //('[data-content="' + targetVal +'"]')
             document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
+
             //９個書き換え
             let productNum = 0;
             while(productNum < $productImgs.length){
 
                 const productTarget = products[targetVal][productNum];
-
+                //空か無い場合は準備中
                 if(productTarget.itemName == undefined||productTarget.itemPrice == undefined||productTarget.itemSrc == undefined){
                     $productName[productNum].textContent = "準備中";
                     $productPrice[productNum].textContent = "準備中";
@@ -72,7 +73,7 @@
         const imgClick = (e) => {
 
             const $clickProductImgName = $doc.getElementsByClassName("productName")[e.target.dataset.img].innerText
-
+            //空か無い場合は何もしない
             if( $clickProductImgName === "準備中" || $clickProductImgName === "" ) {
                 return;
             }else{
