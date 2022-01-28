@@ -41,20 +41,21 @@
             let productNum = 0;
             while(productNum < $productImgs.length){
 
-                const productTarget = products[targetVal][productNum];
-
+            const productTarget = products[targetVal][productNum];
+            const comingS = "https://1.bp.blogspot.com/-yLBynzNZD1w/UrEiXdtEJDI/AAAAAAAAb-E/B9sNm9_jAkU/s800/pop_coming_soon.png"
+            
                 if(productTarget.itemName == undefined||productTarget.itemPrice == undefined||productTarget.itemSrc == undefined){
-                    $productName[productNum].textContent = "準備中";
-                    $productPrice[productNum].textContent = "準備中";
-                    $productImgs[productNum].src = "./images/準備中.png";
-                }else if(productTarget.itemName == "" || productTarget.itemPrice == "" || productTarget.itemSrc == "" ){
-                    $productName[productNum].textContent = "準備中";
-                    $productPrice[productNum].textContent = "準備中";
-                    $productImgs[productNum].src = "./images/準備中.png";
-                }else{
-                    $productName[productNum].textContent = productTarget.itemName;
-                    $productPrice[productNum].textContent = productTarget.itemPrice;
-                    $productImgs[productNum].src = productTarget.itemSrc;
+                        $productName[productNum].textContent = "準備中";
+                        $productPrice[productNum].textContent = "準備中";
+                        $productImgs[productNum].src = comingS;
+                    }else if(productTarget.itemName == "" || productTarget.itemPrice == "" || productTarget.itemSrc == "" ){
+                        $productName[productNum].textContent = "準備中";
+                        $productPrice[productNum].textContent = "準備中";
+                        $productImgs[productNum].src = comingS;
+                    }else{
+                        $productName[productNum].textContent = productTarget.itemName;
+                        $productPrice[productNum].textContent = productTarget.itemPrice;
+                        $productImgs[productNum].src = productTarget.itemSrc;
                 }
                 productNum++;
             };
