@@ -37,9 +37,11 @@
             //対象のコンテンツ（９個の画像と名前、値段など）をアクティブ化する、product-imgs
             //('[data-content="' + targetVal +'"]')
             document.querySelectorAll('[data-content="0"]')[0].style.display = "block";
+
             //９個書き換え
             let productNum = 0;
             while(productNum < $productImgs.length){
+
 
             const productTarget = products[targetVal][productNum];
             const comingS = "https://1.bp.blogspot.com/-yLBynzNZD1w/UrEiXdtEJDI/AAAAAAAAb-E/B9sNm9_jAkU/s800/pop_coming_soon.png"
@@ -73,7 +75,7 @@
         const imgClick = (e) => {
 
             const $clickProductImgName = $doc.getElementsByClassName("productName")[e.target.dataset.img].innerText
-
+            //空か無い場合は何もしない
             if( $clickProductImgName === "準備中" || $clickProductImgName === "" ) {
                 return;
             }else{
